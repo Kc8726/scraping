@@ -1,0 +1,27 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_news(url):
+    # Отправляем GET-запрос к веб-сайту
+    response = requests.get(url)
+
+    # Проверяем успешность запроса
+    if response.status_code == 200:
+        # Используем BeautifulSoup для разбора HTML-кода страницы
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Находим заголовки новостей (замените на свои теги и классы)
+        news_headlines = soup.find_all('h2', class_='news-title')
+
+        # Выводим заголовки новостей
+        for headline in news_headlines:
+            print(headline.text.strip())
+    else:
+        print("Ошибка при запросе:", response.status_code)
+
+if __name__ == "__main__":
+    # Укажите URL веб-сайта с новостями
+    news_url = "https://example.com/news"
+
+    # Запуск веб-скрейпера
+    scrape_news(news_url)
