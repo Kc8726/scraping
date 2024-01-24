@@ -17,13 +17,4 @@ def scrape_news(url):
         for headline in news_headlines:
             print(headline.text.strip())
     else:
-        print("Помилка при запросе:", response.status_code)
 
-if __name__ == "__main__":
-    # Вкажите URL веб-сайта с новостями
-
-    news_url = "https://example.com/news"
-
-    # Запуск веб-скрейпера
-
-    scrape_news(news_url)
