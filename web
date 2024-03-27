@@ -3,17 +3,7 @@ from bs4 import BeautifulSoup
 
 def scrape_news(url):
     # Отправляем GET-запрос к веб-сайту
-    response = requests.get(url)
-
-    # Проверяем успешность запроса
-    if response.status_code == 200:
-        # Используем BeautifulSoup для разбора HTML-кода страницы
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        # Знаходимо заголовки новостей (замените на свои теги и классы)
-        news_headlines = soup.find_all('h2', class_='news-title')
-
-        # Виводимо заголовки новостей
+    response 
         for headline in news_headlines:
             print(headline.text.strip())    # Проверяем успешность запроса
     if response.status_code == 200:
